@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <style>
+            .calculate{
+                width:40%;
+                margin: auto;
+                height:500px;
+                padding:20px;
+                border:2px solid grey;
+                box-shadow:10px 10px 5px slategray;
+                
+            }
+
+
+            #display{
+                height:80px;
+                border:2px solid brown;
+                box-shadow: 5px 5px 5px brown;
+                margin: auto;
+                margin-bottom: 30px;
+                border-radius: 15px;
+                text-align: center;
+                font-size: 40px;
+                align-items: center;
+            }
+
+            .keyboard{
+                /* border:1px solid black; */
+                width:auto;
+            }
+
+            .row1 , .row2 ,.row3, .row4{
+                display: flex;
+            }
+
+            .keyboard>div>div{
+                border:2px solid white;
+                background-color: thistle;
+                box-shadow: 2px 2px 2px thistle;
+                width:90px;
+                height:80px;
+                margin: auto;
+                padding:2px;
+                font-size: 70px;
+                text-align: center;
+                border-radius: 50px;
+                margin-top: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="Calculate">
+        <div id="display">
+        </div>
+        <div class="keyboard">
+            
+            <div class="row1">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>+</div>
+        </div>
+        <div class="row2">
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>-</div>
+            </div>
+            <div class="row3">
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>*</div>
+        </div>
+        <div class="row4">
+            <div>C</div>
+            <div>0</div>
+            <div>=</div>
+            <div>/</div>
+        </div>
+
+        </div>
+        </div>
+    </div>
+    </body>
+</html>
+<script>
+    let abc=document.querySelectorAll(".keyboard>div>div");
+
+    for(let i=0;i<abc.length;i++){
+        abc[i].addEventListener("click",myfunction);
+    }
+
+    let bag=" ";DOM
+    function myfunction(event){
+        let targetNumber=event.target.innerText;
+        if(targetNumber=="C"){
+            document.querySelector("#display").innerText=" ";
+            bag=" ";
+        }
+
+        else if(targetNumber=="="){
+            if(bag==" "){
+            document.querySelector("#display").innerText=" "; }
+        else{ 
+            document.querySelector("#display").innerText=(eval(bag));
+        }
+        }
+        else{
+        bag=bag+targetNumber;
+        document.querySelector("#display").innerText=bag;
+        }
+    }
+
+</script>
