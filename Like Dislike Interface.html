@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LikeDislike</title>
+    <style>
+        button{
+            background-color: burlywood;
+            border:0px;
+            padding:5px;
+            margin:auto;
+        }
+
+        p{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./Puppy.jpg" alt="">
+    
+    <div>
+        <p>Likes: <span id="LikeOut"></span></p>
+        <p>Dislikes: <span id="DislikeOut"></span></p>
+    </div>
+
+    <div>
+        <button id="likeBtn">Like</button>
+        <button id="dislikeBtn">Dislike</button>
+    </div>
+</body>
+</html>
+
+<script>
+    let likeCount ;
+    if(localStorage.getItem("puppyLike")==null){
+        likeCount=0;
+    }
+    else{
+        likeCount=localStorage.getItem("puppyLike");
+    }
+
+    document.querySelector("#LikeOut").innerText=likeCount;
+    let DislikeCount;
+    if(localStorage.getItem("puppyDislike"==null)){
+        DislikeCount=0;
+    }else{
+        DislikeCount=localStorage.getItem("puppyDislike");
+    }
+    document.querySelector("#DislikeOut").innerText=DislikeCount;
+
+    document.querySelector("div>button").addEventListener("click",likeFunction)
+
+    function likeFunction(){
+        likeCount++;
+        // console.log("liked");
+        document.querySelector("#LikeOut").innerText=likeCount;
+        localStorage.setItem("puppyLike",likeCount);
+    }
+
+    document.querySelector("button+button").addEventListener("click",DislikeFunction)
+
+    function DislikeFunction(){
+        // console.log("Disliked");
+        DislikeCount++;
+        document.querySelector("#DislikeOut").innerText=DislikeCount;
+        localStorage.setItem("puppyDislike",DislikeCount);
+    }
+
+
+</script>
