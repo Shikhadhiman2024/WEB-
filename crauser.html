@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Crauser</title>
+    <style>
+        div{
+            width:100%;
+            position: relative; /*when parent has relative position then child take property from child or we can say the margins,not only with realtive it works with anything but static*/
+        }
+
+        img{
+            width:100%;
+            height:400px;
+        }
+
+        button{
+            position: absolute;
+            top:40%;
+            /*rgb,hexa,rgba(a-alpha(controls transperency or opacity))*/
+            background-color: rgba(247, 176, 176, 0.5);
+        }
+
+        button:nth-child(2){
+          left:10px;
+
+        }
+
+        button:nth-child(3){
+          right:10px;
+          
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <img id="crauser" src="./Crauser image.jpg" alt="error">
+        <button id="left-btn"><</button>
+        <button id="right-btn">></button>
+    </div>    
+</body>
+</html>
+<script>
+    let imagesLink=["Crauser image.jpg","slider-2.jpg","slider -1.jpg"];
+    let leftBtn=document.getElementById("left-btn");
+    let rightBtn=document.getElementById("right-btn");
+
+    let crauser=document.getElementById("crauser");
+    let imageState=0;
+    rightBtn.addEventListener("click",function(){
+        imageState++;
+        if(imageState===imagesLink.length){
+            imageState=0;
+        }
+        crauser.src=imagesLink[imageState];
+    });
+
+    leftBtn.addEventListener("click",function(){
+      imageState--;
+      if(imageState<0){
+        imageState=imagesLink.length-1;
+      }
+      crauser.src=imagesLink[imageState];  
+    });
+
+
+</script>
